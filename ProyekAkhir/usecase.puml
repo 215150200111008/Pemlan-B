@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+actor Operator
+
+rectangle "Sistem Antrian Cuci Kendaraan" {
+    usecase "Input Kendaraan" as UC1
+    usecase "Cetak Tiket Antrian" as UC2
+    usecase "Lihat Riwayat Cuci" as UC3
+    usecase "Lihat Rekap Penghasilan Hari Ini" as UC4
+    usecase "Clear Riwayat Cuci" as UC5
+}
+
+Operator --> UC1
+Operator --> UC2
+Operator --> UC3
+Operator --> UC4
+Operator --> UC5
+@enduml

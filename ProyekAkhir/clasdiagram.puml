@@ -1,0 +1,48 @@
+@startuml
+class AntrianGUI {
+  - platField : JTextField
+  - jenisBox : JComboBox<String>
+  - tipeBox : JComboBox<TipeCuci>
+  + AntrianGUI()
+  - cetakTiket() : void
+  - tampilkanRiwayat() : void
+  - tampilkanRekapHariIni() : void
+  - clearRiwayat() : void
+}
+
+class Kendaraan {
+  - plat : String
+  - jenis : String
+  - tipeCuci : TipeCuci
+  - kodeAntrian : String
+  - waktu : LocalDateTime
+  - harga : int
+  + Kendaraan(plat, jenis, tipe, kode)
+  + getStruk() : String
+  + getRiwayatFormat() : String
+  + getTanggal() : LocalDate
+  + getHarga() : int
+}
+
+enum TipeCuci {
+  + CUKI_KILAT
+  + CUKI_SALJU
+  + CUKI_BERSIH
+  - nama : String
+  - harga : int[]
+  - kode : String
+  + getHarga(jenis:String) : int
+  + getNama() : String
+  + getKode() : String
+}
+
+class AntrianManager {
+  - counterMap : Map<String, Integer>
+  + getKodeAntrian(jenis:String, tipe:TipeCuci) : String
+}
+
+AntrianGUI --> Kendaraan
+AntrianGUI --> TipeCuci
+Kendaraan --> TipeCuci
+AntrianGUI --> AntrianManager
+@enduml
